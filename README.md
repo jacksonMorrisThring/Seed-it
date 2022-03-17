@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is designed with the hobby botanist in mind. It consists of the software including: the database, the server, and the front end User Interface. Once logged in, users can add a new plant to their collection of plants. In reality, the software system would be paired up to hardware via an app. This app would essentially handle the turning on and off of a light inside the box. Our project will just worry about the software side, and leave the hardware side for a potential future project. Once the user has made an account and made a plant, they will be prompted to enter the light cycle they want to use (grow or bloom) and the app will track and handle the rest.
+This project is designed with the hobby botanist in mind! It consists of the software including: the database, the server, and the front end User Interface. Once logged in, users can add a new plant to their collection of plants. In reality, the software system would be paired up to hardware via an app. This app would essentially handle the turning on and off of a light inside the box. Our project will just worry about the software side, and leave the hardware side for a potential future project. Once the user has made an account and made a plant, they will be prompted to enter the light cycle they want to use (grow or bloom) and the app will track and handle the rest.
 
 ## Table of Contents
 
