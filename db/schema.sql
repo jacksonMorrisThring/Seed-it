@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS seedIt_db;
+CREATE DATABASE seedIt_db;
