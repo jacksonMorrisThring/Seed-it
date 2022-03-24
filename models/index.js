@@ -29,4 +29,4 @@ User.hasMany(Plant, {
     foreignKey: "user_id",
   });
   
-  module.exports = { User, Blog, Comment };
+  module.exports = { User, Plant, Comment };
