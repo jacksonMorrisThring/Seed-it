@@ -1,16 +1,17 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { User, Plant} = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
   res.render("landing");
 });
 
-router.get("/myplants", async (req, res) => {
+router.get("/myplants", withAuth, async (req, res) => {
   res.render("myplants");
 });
 
-router.get("/myplants/:id", async (req, res) => {
+router.get("/myplants/:id", withAuth, async (req, res) => {
   try {
     const dbPlantData = await Plant.findOne({
       where: {
