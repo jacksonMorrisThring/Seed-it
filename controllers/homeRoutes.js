@@ -10,6 +10,31 @@ router.get("/myplants", async (req, res) => {
   res.render("myplants");
 });
 
+router.get("/myplants/:id", async (req, res) => {
+  try {
+    const dbPlantData = await Plant.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!dbPlantData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    res
+        .status(200)
+        .json({ user: dbPlantData, message: 'This is the plant!' });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
