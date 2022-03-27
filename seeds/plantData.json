@@ -3,5 +3,20 @@
     "plant_name": "mint",
     "user_id": 1,
     "is_light": true
+    },
+    {
+        "plant_name": "thyme",
+        "user_id": 2,
+        "is_light": true
+    },
+    {
+        "plant_name": "basil",
+        "user_id": 3,
+        "is_light": true
+    },
+    {
+        "plant_name": "coriander",
+        "user_id": 1,
+        "is_light": true
     }
 ]
