@@ -40,6 +40,23 @@ router.get("/myplants/:id", withAuth, async (req, res) => {
   }
 });
 
+router.get('/myplants', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Plant }],
+    });
+    const user = userData.get({ plain: true });
+    res.render('myplants', {
+      ...user,
+      loggedIn: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+    res.render('/');
+  }
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   console.log(req.session.loggedIn);
