@@ -1,8 +1,33 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+var dayjs = require('dayjs');
 
 class Plant extends Model {
-  
+  checkLight() {
+    var currentHour =  dayjs().hour();
+
+    if (Plant.hourCreated < currentHour < Plant.hourCreated+16){
+      return true;
+    }
+    else {
+      return false;
+    }
+    //handle for if time+16 < 24
+
+        //subhandle if light should now be off
+
+
+        //subhandle for if light should now be on
+
+
+
+    //handle for if time+16 > 24
+      //subhandle if light should now be off
+
+
+        //subhandle for if light should now be on
+    return bcrypt.compareSync(loginPw, this.password);
+  }
 }
 
 Plant.init(
@@ -26,9 +51,25 @@ Plant.init(
     },
     is_light: {
         type: DataTypes.BOOLEAN,
+    },
+    hourCreated: {
+      type:  DataTypes.INTEGER,
+      allowNull: true,
     }
   },
   {
+    hooks: {
+      beforeCreate: async (newPlantData) => {
+        
+        newPlantData.hourCreated = await dayjs().hour();//dayjs hour call
+        return newPlantData;
+      },
+
+      // beforeCreate: async (newPlantData) => {
+      //   newPlantData.is_light = await Plant.checkLight();
+      //   return newPlantData;
+      // },
+    },
     sequelize,
     timestamps: true,
     freezeTableName: true,
