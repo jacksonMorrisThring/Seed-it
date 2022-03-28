@@ -4,11 +4,15 @@ const { User, Plant} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
-  res.render("landing");
+  res.render("landing", {
+    loggedIn: req.session.loggedIn
+  });
 });
 
 router.get("/myplants", withAuth, async (req, res) => {
-  res.render("myplants");
+  res.render("myplants" , {
+    loggedIn: req.session.loggedIn
+  });
 });
 
 router.get("/myplants/:id", withAuth, async (req, res) => {
@@ -38,8 +42,9 @@ router.get("/myplants/:id", withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/landing');
+  console.log(req.session.loggedIn);
+  if (req.session.loggedIn) {
+    res.redirect('/');
     return;
   }
 
@@ -110,5 +115,16 @@ router.post('/signup', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+      req.session.destroy(() => {
+          res.status(204).end();
+      });
+  } else {
+      res.status(404).end();
+  }
+});
+
 
 module.exports = router;
