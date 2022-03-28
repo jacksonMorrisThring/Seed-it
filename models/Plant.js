@@ -6,12 +6,24 @@ class Plant extends Model {
   checkLight() {
     var currentHour =  dayjs().hour();
 
-    if (Plant.hourCreated < currentHour < Plant.hourCreated+16){
-      return true;
+    if (Plant.hourCreated + 16 < 24) {
+      if (Plant.hourCreated < currentHour < Plant.hourCreated+16){
+        return true;
+      }
+      else {
+        return false;
+      }
     }
-    else {
-      return false;
+
+    else{
+      if (Plant.hourCreated < currentHour + 24 < Plant.hourCreated+16){
+        return true;
+      }
+      else {
+        return false;
+      }
     }
+   
     //handle for if time+16 < 24
 
         //subhandle if light should now be off
