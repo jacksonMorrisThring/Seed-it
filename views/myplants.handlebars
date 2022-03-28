@@ -1,39 +1,23 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">My Plants</h1>
-    <p class="lead">Select a plant...</p>
-    {{!-- Card 1 --}}
-    <div class="mx-auto" style="width: 400px;">
-    <div class="card" style="width: 25rem;">
-  <img class="card-img-top" src="../assets/herb.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Title Placeholder</h5>
-    <p class="card-text">Information placeholder for when we link the https://www.programmableweb.com/api/plantid api </p>
-    <a href="https://www.programmableweb.com/api/plantid" class="btn btn-primary">Find out more</a>
   </div>
 </div>
+
+
+
+{{#if plants.length}}
+  <div class="col-md-6">
+    <h3>Your plants:</h3>
+
+    {{#each plants as |plant|}}
+      <div class="mx-auto" style="width: 400px;">
+        <div class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{plant.name}}</h5>
+          </div>
+        </div>
+      </div>
+    {{/each}}
   </div>
-  {{!-- Card 2 --}}
-  <div class="mx-auto" style="width: 400px;">
-    <div class="card" style="width: 25rem;">
-  <img class="card-img-top" src="../assets/plant.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Title Placeholder</h5>
-    <p class="card-text">Information placeholder for when we link the https://www.programmableweb.com/api/plantid api </p>
-    <a href="https://www.programmableweb.com/api/plantid" class="btn btn-primary">Find out more</a>
-  </div>
-</div>
-  </div>
-  {{!-- Card 3 --}}
-  <div class="mx-auto" style="width: 400px;">
-    <div class="card" style="width: 25rem;">
-  <img class="card-img-top" src="../assets/succulent.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Title Placeholder</h5>
-    <p class="card-text">Information placeholder for when we link the https://www.programmableweb.com/api/plantid api </p>
-    <a href="https://www.programmableweb.com/api/plantid" class="btn btn-primary">Find out more</a>
-  </div>
-</div>
-  </div>
-</div>
-</div>
+{{/if}}
