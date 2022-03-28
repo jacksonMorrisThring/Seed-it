@@ -9,7 +9,7 @@ createPlant = async (event) => {
     if (plant) {
       const response = await fetch(`/api/myplants`, {
         method: 'POST',
-        body: JSON.stringify({ content: plant }),
+        body: JSON.stringify({ plant_name: plant }),
         headers: {
           'Content-Type': 'application/json',
         },
