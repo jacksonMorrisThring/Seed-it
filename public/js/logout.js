@@ -1,7 +1,7 @@
 // On click of log out button, makes api call to logout route so user is no longer logged in
 
 const logout = async () => {
-  const response = await fetch('/api/users/logout', {
+  const response = await fetch('logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
