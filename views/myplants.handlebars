@@ -36,14 +36,20 @@
         <div class="input-group flex-nowrap">
           <form>
         <div class="form-group">
-          <input
+          {{!-- <input
             type="text"
             class="form-control"
             aria-label="plant-name"
             id="plant-name"
             aria-describedby="addon-wrapping"
             value=""
-          />
+          /> --}}
+          <select class="form-select" aria-label="Default select example" id="plant-name">
+            <option selected>Select a plant type</option>
+            <option value="Parsley">Parsley</option>
+            <option value="Mint">Mint</option>
+            <option value="Basil">Basil</option>
+          </select>
           </div>
           </form>
         </div>
@@ -72,6 +78,7 @@
           />
           <div class="card-body">
             <h4 class="card-title">{{plant.plant_name}}</h4>
+            <p>{{description}}</p>
           </div>
         </div>
       </div>
