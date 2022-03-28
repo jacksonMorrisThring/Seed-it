@@ -9,12 +9,6 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/myplants", withAuth, async (req, res) => {
-  res.render("myplants" , {
-    loggedIn: req.session.loggedIn
-  });
-});
-
 router.get("/myplants/:id", withAuth, async (req, res) => {
   try {
     const dbPlantData = await Plant.findOne({
@@ -44,16 +38,17 @@ router.get('/myplants', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Plant }],
+      include: [{ model: Plant}]
     });
     const user = userData.get({ plain: true });
+    
     res.render('myplants', {
       ...user,
       loggedIn: true
     });
   } catch (err) {
     res.status(500).json(err);
-    res.render('/');
+    res.render('landing');
   }
 });
 
@@ -65,7 +60,9 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res
+  
+  .render('login');
 });
 
 // Login
@@ -93,17 +90,20 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
+        
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
 
     req.session.save(() => {
-      
+        req.session.user_id = dbUserData.id;
         req.session.loggedIn = true;
+      
 
       res
         .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
+        
+        .json({ user: dbUserData, message: `You are now logged in!`});
     });
   } catch (err) {
     console.log(err);
