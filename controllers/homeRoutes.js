@@ -122,7 +122,7 @@ router.post('/signup', async (req, res) => {
     // TODO: Set up sessions with the 'loggedIn' variable
     req.session.save(() => {
       // TODO: Set the 'loggedIn' session variable to 'true'
-     
+       req.session.user_id = dbUserData.id;
         req.session.loggedIn = true;
 
       res.status(200).json(dbUserData);
