@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node ./seeds/seed.js",
     "start": "node server.js"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
     "mysql2": "^2.2.5",
+    "dayjs" : "^1.11.0",
     "sequelize": "^6.3.5"
   },
   "homepage": "https://github.com/jacksonMorrisThring/Seed-it#readme"
