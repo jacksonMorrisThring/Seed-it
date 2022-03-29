@@ -74,6 +74,7 @@ Plant.init(
       beforeCreate: async (newPlantData) => {
         
         newPlantData.hourCreated = await dayjs().hour();//dayjs hour call
+        newPlantData.is_light = true;
         return newPlantData;
       },
 
