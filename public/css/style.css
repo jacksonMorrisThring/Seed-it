@@ -1,5 +1,10 @@
 :root {
     --text-background: wheat;
+    --btn-background: #054a29;
+}
+
+.nav-title {
+    font-size: 54px;
 }
 
 .landing-text {
@@ -10,4 +15,13 @@
 
 form .form-input {
     background-color: var(--text-background);
+}
+
+.btn.btn-primary {
+    background-color: var(--btn-background);
+}
+
+.btn {
+    background-color: var(--btn-background);
+    color: white;
 }
