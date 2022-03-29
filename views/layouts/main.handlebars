@@ -15,25 +15,24 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           
-           <span class="navbar-brand mb-0 h1">&#127807 Seed-it</span>
+           <span class="navbar-brand mb-0 h1"><h1>&#127807 Seed-it</h1></span>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="http://localhost:3001/">Home</a>
+                <a class="nav-link active" aria-current="page" href="http://localhost:3001/"><button type="button" class="btn">Home</button></a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="http://localhost:3001/myplants"><button type="button" class="btn">My Plants</button></a>
+              </li>
               <li class="nav-item">
                 {{#if loggedIn}}
-                <button type="button" class="btn btn-link" id="logout">Logout</button>
+                <a class="nav-link active" aria-current="page"><button type="button" class="btn" id="logout">Logout</button></a>
                 {{else}}
-                <a class="nav-link active" aria-current="page" href="/login">Login/Sign-up</a>
+                <a class="nav-link active" aria-current="page" href="/login"><button type="button" class="btn">Login/Sign-up</button></a>
                 {{/if}}
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="http://localhost:3001/myplants">My Plants</a>
               </li>
             </ul>
           </div>
