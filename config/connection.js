@@ -18,9 +18,6 @@ if (process.env.JAWSDB_URL) {
   );
 }
 module.exports = sequelize;
-white_check_mark
-eyes
-raised_hands
 
 
 
