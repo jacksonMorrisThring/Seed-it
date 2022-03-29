@@ -1,17 +1,35 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">My Plants</h1>
+    <p class="lead"><button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Add Plant
+    </button></p>
   </div>
 </div>
 
-<button
-  type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="#exampleModal"
->
-  Add Plant
-</button>
+
+  {{#if plants.length}}
+      {{#each plants as |plant|}}
+        <div class="mx-auto" style="width: 400px;">
+          <div class="card" style="width: 25rem;">
+            <img
+              class="card-img-top"
+              src="../assets/herb.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h4 class="card-title">{{plant.plant_name}}</h4>
+              <p>{{description}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+  {{/if}}
 
 <div
   class="modal fade"
@@ -35,16 +53,16 @@
         <label for="plant-name" class="form-label">Plant name:</label>
         <div class="input-group flex-nowrap">
           <form>
-        <div class="form-group">
-          {{!-- <input
-            type="text"
-            class="form-control"
-            aria-label="plant-name"
-            id="plant-name"
-            aria-describedby="addon-wrapping"
-            value=""
-          /> --}}
-          <select class="form-select" aria-label="Default select example" id="plant-name">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                aria-label="plant-name"
+                id="plant-name"
+                aria-describedby="addon-wrapping"
+                value=""
+              />
+              {{! <select class="form-select" aria-label="Default select example" id="plant-name">
             <option selected>Select a plant type</option>
             <option value="Parsley">Parsley</option>
             <option value="Mint">Mint</option>
@@ -54,8 +72,8 @@
             <option value="Chives">Chives</option>
             <option value="Rosemary">Rosemary</option>
             <option value="Sage">Sage</option>
-          </select>
-          </div>
+          </select> }}
+            </div>
           </form>
         </div>
       </div>
@@ -65,30 +83,14 @@
           class="btn btn-secondary"
           data-bs-dismiss="modal"
         >Cancel</button>
-        <button type="button" class="btn btn-primary" id="save-plant">Save</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="save-plant"
+        >Save</button>
       </div>
     </div>
   </div>
 </div>
-
-{{#if plants.length}}
-  <div class="col-md-6">
-    {{#each plants as |plant|}}
-      <div class="mx-auto" style="width: 400px;">
-        <div class="card" style="width: 25rem;">
-          <img
-            class="card-img-top"
-            src="../assets/herb.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <h4 class="card-title">{{plant.plant_name}}</h4>
-            <p>{{description}}</p>
-          </div>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-{{/if}}
 
 <script src="/js/addplant.js"></script>
