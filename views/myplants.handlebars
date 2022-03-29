@@ -1,10 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">My Plants</h1>
-  </div>
-</div>
-
-<button
+    <p class="lead"><button
   type="button"
   class="btn btn-primary"
   data-bs-toggle="modal"
@@ -12,6 +9,32 @@
 >
   Add Plant
 </button>
+</p>
+{{#if plants.length}}
+  <div class="col-md-6">
+    {{#each plants as |plant|}}
+      <div class="mx-auto" style="width: 400px;">
+        <div class="card" style="width: 25rem;">
+          <img
+            class="card-img-top"
+            src="../assets/herb.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h4 class="card-title">{{plant.plant_name}}</h4>
+              {{#if plant.is_light}}
+              <h3>💡<h3>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{/if}}
+  </div>
+</div>
+
+
 
 <div
   class="modal fade"
@@ -70,25 +93,5 @@
     </div>
   </div>
 </div>
-
-{{#if plants.length}}
-  <div class="col-md-6">
-    {{#each plants as |plant|}}
-      <div class="mx-auto" style="width: 400px;">
-        <div class="card" style="width: 25rem;">
-          <img
-            class="card-img-top"
-            src="../assets/herb.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <h4 class="card-title">{{plant.plant_name}}</h4>
-            <p>{{description}}</p>
-          </div>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-{{/if}}
 
 <script src="/js/addplant.js"></script>
