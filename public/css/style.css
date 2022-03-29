@@ -1,0 +1,13 @@
+:root {
+    --text-background: wheat;
+}
+
+.landing-text {
+    background-color: var(--text-background);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+form .form-input {
+    background-color: var(--text-background);
+}
